@@ -1,0 +1,481 @@
+{% extends 'base.html' %}
+{% load static %}
+        
+{% block section %}
+<!-- Page Header Start -->
+<div class="page-header mb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Menyu və Sifariş Bölməsi</h2>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+<!-- Sifaris Start -->
+<br><br>
+<center>
+    <h1 >Sifariş Bölməsi</h1>
+</center>
+
+<div class="menu">
+    <div class="container">
+        <div class="menu-tab">
+            <ul class="nav nav-pills justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="pill" href="#burgers-sfr">Dönərlər</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#snacks-sfr">İçkilər</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#beverages-sfr">Setlər</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="burgers-sfr" class="container tab-pane active">
+                    <div class="row">
+                        <section class="container content-section">
+                            <div class="shop-items">
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Kartof Free</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/small-free.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">1.90 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Kartof Free (Böyük)</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/large-free.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">3.60 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </section>
+                        <section class="container content-section">
+                            <div class="shop-items">
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Şaurma</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/saurma.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">3.50 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Lavaş Dönər</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/menu-lavas.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">2.50 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button"type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Dönər</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/doner.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">2.30 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Tombik Dönər</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/tombik.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">4.00 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Limuzin Dönər</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/limuzin.webp' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">4.50 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Porsion Dönər</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/porsion.webp' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">5.20 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Lahmacun (Ətli)</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/lahmacun.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">3.00 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Lahmacun (Pendirli)</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/lahmacun-1.jpeg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">1.80 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Burger (Toyuq Ət)</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/burger.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">2.90 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Burger (Mal Əti)</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/burger-1.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">3.40 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Kolbasa Dönər</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/post-3.avif' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">3.00 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+  
+                            </div>
+                            <br>
+                        </section>
+                    </div>
+                </div>
+                <div id="snacks-sfr" class="container tab-pane fade">
+                    <div class="row">
+                        <section class="container content-section">
+                            <div class="shop-items">
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Su</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/su.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">0.50 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Ayran</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/ayran-1.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">0.70 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Ayran Böyük</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/ayran-2.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">1.00 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button"type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </section>
+                        <section class="container content-section">
+                            <div class="shop-items">
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Cappy</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/Cappy.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">1.20 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Coca-Cola</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/cola-1.webp' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">1.50 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Coca-Cola (Böyük)</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/cola-2.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">1.80 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </section> 
+                        <section class="container content-section">
+                            <div class="shop-items">
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Sprite</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/sprite.jpeg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">1.50 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Sprite (Böyük)</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/sprite-2.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">1.80 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Pepsi</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/pepsi-small.webp' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">1.50 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Fanta</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/fanta-1.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">1.50 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Fanta (Böyük)</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/fanta-2.webp' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">1.80 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">Pepsi (Böyük)</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/pepsi.png' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">1.80 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                        </section> 
+                    </div>
+                </div>
+                <div id="beverages-sfr" class="container tab-pane fade">
+                    <div class="row">
+                        <section class="container content-section">
+                            <div class="shop-items">
+                                <div class="shop-item">
+                                    <span class="shop-item-title">4 Dönər + 1 Dönər</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/menu-set-2.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">9.00 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">2 Dönər + 2 Qab Aş + Salat</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/menu-set.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">12.00 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                        
+                            </div>
+                        </section>
+                        <section class="container content-section">
+                            <div class="shop-items">
+                                <div class="shop-item">
+                                    <span class="shop-item-title">2 Dönər + 2 Pepsi + 2 Kartof Free</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/free-set.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">10.00 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">1 Dönər + 1 Ayran + Paytaxt Salatı</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/salat-set.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">8.00 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div  class="shop-item">
+                                    <span class="shop-item-title">2 Dönər + 2 Lavaş Dönər</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/set-6.avif' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">8.50 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button" type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                                <div class="shop-item">
+                                    <span class="shop-item-title">3 Tombik Dönər + 3 Lavaşda Dönər</span>
+                                    <img data-tilt class="shop-item-image" src="{% static 'img/menu-set-1.jpg' %}">
+                                    <div class="shop-item-details">
+                                        <span class="shop-item-price">15.00 <i class="fa-solid fa-manat-sign"></i></span>
+                                        <button class="btn btn-primary shop-item-button"type="button">Əlavə Et</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Sifaris End -->
+
+<!-- --------------------SIFARISLER HISSESI----------------------->
+<section class="container content-section">
+    <center style="color:black; font-size:40px; font-family: 'Nunito', sans-serif;" class="section-header">Sifarişlərim</center>
+    <div class="cart-row">
+        <span class="cart-item cart-header cart-column">Dönər</span>
+        <span class="cart-price cart-header cart-column">Qiymət</span>
+        <span class="cart-quantity cart-header cart-column">Miqdar</span>
+    </div>
+    <div class="cart-items">
+    </div>
+    <div class="cart-total">
+        <strong class="cart-total-title">Ümumi hesap : </strong>
+        <span style="color: green; font-size:23px;" class="cart-total-price"><i class="fa-solid fa-manat-sign"></i> 0</span>
+    </div>
+    <a href="/paypal"><button class="btn btn-primary btn-purchase" type="button">Sifariş Et</button></a>
+</section>
+
+<!-- ------------------------------------------------------------------------------------------- -->
+
+<script async>
+
+    if (document.readyState == 'loading') {
+        document.addEventListener('DOMContentLoaded', ready)
+    } else {
+        ready()
+    }
+    
+    function ready() {
+        var removeCartItemButtons = document.getElementsByClassName('btn-danger')
+        for (var i = 0; i < removeCartItemButtons.length; i++) {
+            var button = removeCartItemButtons[i]
+            button.addEventListener('click', removeCartItem)
+        }
+    
+        var quantityInputs = document.getElementsByClassName('cart-quantity-input')
+        for (var i = 0; i < quantityInputs.length; i++) {
+            var input = quantityInputs[i]
+            input.addEventListener('change', quantityChanged)
+        }
+    
+        var addToCartButtons = document.getElementsByClassName('shop-item-button')
+        for (var i = 0; i < addToCartButtons.length; i++) {
+            var button = addToCartButtons[i]
+            button.addEventListener('click', addToCartClicked)
+        }
+    
+        document.getElementsByClassName('btn-purchase')[0].addEventListener('click', purchaseClicked)
+    }
+    
+    function purchaseClicked() {
+        var cartItems = document.getElementsByClassName('cart-items')[0]
+        while (cartItems.hasChildNodes()) {
+            cartItems.removeChild(cartItems.firstChild)
+        }
+        updateCartTotal()
+    }
+    
+    function removeCartItem(event) {
+        var buttonClicked = event.target
+        buttonClicked.parentElement.parentElement.remove()
+        updateCartTotal()
+    }
+    
+    function quantityChanged(event) {
+        var input = event.target
+        if (isNaN(input.value) || input.value <= 0) {
+            input.value = 1
+        }
+        updateCartTotal()
+    }
+    
+    function addToCartClicked(event) {
+        var button = event.target
+        var shopItem = button.parentElement.parentElement
+        var title = shopItem.getElementsByClassName('shop-item-title')[0].innerText
+        var price = shopItem.getElementsByClassName('shop-item-price')[0].innerText
+        var imageSrc = shopItem.getElementsByClassName('shop-item-image')[0].src
+        addItemToCart(title, price, imageSrc)
+        updateCartTotal()
+    }
+    
+    function addItemToCart(title, price, imageSrc) {
+        var cartRow = document.createElement('div')
+        cartRow.classList.add('cart-row')
+        var cartItems = document.getElementsByClassName('cart-items')[0]
+        var cartItemNames = cartItems.getElementsByClassName('cart-item-title')
+        for (var i = 0; i < cartItemNames.length; i++) {
+            if (cartItemNames[i].innerText == title) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Səbətini Yoxla !!!',
+                  })
+                return
+            }
+        }
+        var cartRowContents = `
+            <div class="cart-item cart-column">
+                <img class="cart-item-image" src="${imageSrc}" width="100" height="100">
+                <span class="cart-item-title">${title}</span>
+            </div>
+            <span class="cart-price cart-column">${price}</span>
+
+
+            <div class="cart-quantity cart-column">
+                <input class="cart-quantity-input" type="number" value="1">
+                <button style='width:90px;' class="btn btn-danger" type="button">Sil</button>
+            </div>`
+        cartRow.innerHTML = cartRowContents
+        cartItems.append(cartRow)
+        cartRow.getElementsByClassName('btn-danger')[0].addEventListener('click', removeCartItem)
+        cartRow.getElementsByClassName('cart-quantity-input')[0].addEventListener('change', quantityChanged)
+    }
+
+    function updateCartTotal() {
+        var cartItemContainer = document.getElementsByClassName('cart-items')[0]
+        var cartRows = cartItemContainer.getElementsByClassName('cart-row')
+        var total = 0
+        for (var i = 0; i < cartRows.length; i++) {
+            var cartRow = cartRows[i]
+            var priceElement = cartRow.getElementsByClassName('cart-price')[0]
+            var quantityElement = cartRow.getElementsByClassName('cart-quantity-input')[0]
+            var price = parseFloat(priceElement.innerText.replace('$', ''))
+            var quantity = quantityElement.value
+            total = total + (price * quantity)
+        }
+        total = Math.round(total * 100) / 100
+        document.getElementsByClassName('cart-total-price')[0].innerText =  total + ' Manat' 
+    }
+
+    let btnMsg = document.getElementsByClassName('shop-item-button');
+    [...btnMsg].map(index => {
+        index.addEventListener("click", () => {
+           index.innerText = "Əlave Edildi"
+        })
+    })
+  
+</script>
+
+{% endblock section %}
+

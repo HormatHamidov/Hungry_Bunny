@@ -1,0 +1,92 @@
+{% load static %}
+
+<!-- Footer Start -->
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-7">
+                <div class="row">
+                    <div class="col-md-4 ">
+                        <div class="footer-contact">
+                            <h2> Bizim Ünvan</h2>
+                            <p><i class="fa fa-map-marker-alt"></i>Bakı , 51 Zahid Xəlilov </p>
+                            <p><i class="fa fa-phone-alt"></i>+994 070 494 91 11</p>
+                            <p><i class="fa fa-envelope"></i>info@gmail.com</p>
+                            <div class="footer-social">
+                                <a href="https://twitter.com/?lang=tr" target="_blank"><i class="fab fa-twitter"></i></a>
+                                <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                                <a href="https://www.youtube.com/" target="_blank"><i class="fab fa-youtube"></i></a>
+                                <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="footer-link">
+                            <h2>Qısa Yollar</h2>
+                            <a href="/">Ana Səhifə</a>
+                            <a href="/menu">Menyular</a>
+                            <a href="/contact">Əlaqə</a>
+                            <a href="/booking">Rezervasiya</a>
+                            <a href="/terms">Xidmət Şərtləri</a>
+                            <a href="/faq">FAQ</a>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div class="footer-contact">
+                            <h2>İşləmə Vaxtımız :</h2>
+
+                            <p><i class="fa-solid fa-calendar-days"></i>Həftə İçi Hər Gün</p>
+                            <p><i class="fa-solid fa-clock"></i>9:00 - 23:00</p>
+                        </div>
+                    </div>
+                   
+                </div>
+            </div>
+            <div  class="col-lg-5">
+                <div class="footer-newsletter">
+                    <h2>Xəbərdar Ol</h2>
+                    <p>
+                        Bizim haqqda yeni dəyişikliklər və yeni xəbərləri email-nə gələn mesajla öyrən.
+                    </p>
+                    <div class="form">
+                        <input style="color: white;" class="form-control" placeholder="Email adresini yaz">
+                        <button id="sendmail" class="btn custom-btn">Göndər</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Footer End -->
+
+<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+<!-- JavaScript Libraries -->
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+<script src="{% static 'lib/easing/easing.min.js' %}"></script>
+<script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+<script src="{% static 'lib/tempusdominus/js/moment.min.js' %}"></script>
+<script src="{% static 'lib/tempusdominus/js/moment-timezone.min.js' %}"></script>
+<script src="{% static 'lib/isotope/isotope.pkgd.min.js' %}"></script>
+<script src="{% static 'lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js' %}"></script>
+
+<!-- TİLT JS -->
+<script type="text/javascript" src="{% static 'lib/tilt/tilt.js' %}"></script>
+
+<!-- Sweetalert CDN -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="@@path/vendor/sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+<!-- INPUTMASK CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.7/jquery.inputmask.min.js" integrity="sha512-jTgBq4+dMYh73dquskmUFEgMY5mptcbqSw2rmhOZZSJjZbD2wMt0H5nhqWtleVkyBEjmzid5nyERPSNBafG4GQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+    $("#mobilenumber").inputmask({"mask": "(999) 999-99-99"});
+</script>
+
+<!-- Template Javascript -->
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

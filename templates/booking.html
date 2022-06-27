@@ -1,0 +1,419 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block section %}
+  <!-- Page Header Start -->
+  <div class="page-header mb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                {% if request.user.is_authenticated %}  
+                <h2>Rezervasiya</h2>
+                {% else %}
+                <h2>Xidmətlərimizdən yalnız hesabınıza daxil olduqda istifadə edə bilərsiniz!!!</h2>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+
+{% if request.user.is_authenticated %}  
+<!-- Booking Start -->
+<div class="booking">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-7">
+                <div class="booking-content">
+                    <div class="section-header">
+                        <p>Rezerv Edin</p>
+                        <h2>Özəl dadlar və zaman ücün masanızı rezerv edin</h2>
+                    </div>
+                    <div class="about-text">
+                        <p>Təsadüfi deyil ki, Hungry Bunny Restoranı Azərbaycanın ən böyük memarı Jože Plečnik tərəfindən dizayn edilmiş Bakı şəhərində , 51 Zahid Xəlilov küçəsində yerləşir. Şəhərin səs-küyünün düz ortasında yerləşməsinə baxmayaraq, qonaqlarımızın dincələ və dinc şəkildə zərif mətbəxi təcrübə edə biləcəyi sakit və zərif bir qaçış təklif edir. Təmiz xətlər və daxili dekorasiyanın mükəmməlliyi bizi yenidən ziyarət etmək üçün səbirsizlənən bir çox turist üçün xüsusi təcrübədir.</p>
+                        <p>
+                            <span style="color: red;">!</span> Rezervasyon tarixindən 7 gün əvvəl ləğv edildikdə, biz bütün avans ödənişini geri qaytaracağıq. <br>
+                            <span style="color: red;">!!</span> Tarixdən 2 gün əvvəl ləğv edildiyi təqdirdə avans ödənişinin 50%-ni geri qaytaracağıq. <br>
+                            <span style="color: red;">!!!</span> Tarixə 2 gündən az qalmış ləğv edildikdə, avans ödənişi geri qaytarılmayacaq.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="booking-form">
+                    <form>
+                        <div class="control-group">
+                            <div class="input-group">
+                                <input type="text" class="form-control" placeholder="Ad" required="required" />
+                                <div class="input-group-append">
+                                    <div class="input-group-text"><i class="far fa-user"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Email" required="required" />
+                                <div class="input-group-append">
+                                    <div class="input-group-text"><i class="far fa-envelope"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="input-group">
+                                <input id="mobilenumber" value="" type="tel" class="form-control" placeholder="Telefon" required="required" />
+                                <div style="display: flex;" class="input-group-append">
+                                    <div class="input-group-text"><i class="fa fa-mobile-alt"></i></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <script type="text/javascript">
+                            document.getElementById('mobilenumber').addEventListener('input', function (y) {
+                                var a = y.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+                                y.target.value = !a[2] ? a[1] : '(' + a[1] + ') ' + a[2] + (a[3] ? '-' + a[3] : '');
+                            });
+                        </script>
+
+                        <div class="control-group">
+                            <div class="input-group date" id="date" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" placeholder=" Gün" data-target="#date" data-toggle="datetimepicker"/>
+                                <div class="input-group-append" data-target="#date" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="far fa-calendar-alt"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="input-group time" id="time" data-target-input="nearest">
+                                <input type="text" class="form-control datetimepicker-input" placeholder=" Saat" data-target="#time" data-toggle="datetimepicker"/>
+                                <div class="input-group-append" data-target="#time" data-toggle="datetimepicker">
+                                    <div class="input-group-text"><i class="far fa-clock"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="input-group">
+                                <select style="background-color: orange;" class="custom-select form-control">
+                                    <option selected>Hansı Filialımız?</option>
+                                    <option value="1">Nərmanov </option>
+                                    <option value="2">Nizami </option>
+                                    <option value="3">İnşaatçılar </option>
+                                    <option value="4">Elmlər </option>
+                                    <option value="5">28 May </option>
+                                    <option value="6">Gənclik </option>
+
+                                </select>
+                                <div class="input-group-append">
+                                    <div class="input-group-text"><i class="fa fa-chevron-down"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="input-group">
+                                <select style="background-color: orange;" class="custom-select form-control">
+                                    <option selected>Neçə Nəfər</option>
+                                    <option value="1">1 </option>
+                                    <option value="2">2 </option>
+                                    <option value="3">3 </option>
+                                    <option value="4">4 </option>
+                                    <option value="5">5 </option>
+                                    <option value="6">6 </option>
+                                    <option value="7">7 </option>
+                                    <option value="8">8 </option>
+                                    <option value="9">9 </option>
+                                    <option value="10">10</option>
+                                </select>
+                                <div class="input-group-append">
+                                    <div class="input-group-text"><i class="fa fa-chevron-down"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <button class="btn custom-btn"  id="basicalert" type="button">İndi Rezerv Edin</button>
+                        </div>
+                        <script>
+                            document.getElementById('basicalert').addEventListener('click', function () {
+                                Swal.fire(
+                                    'Təşəkkürlər!',
+                                    'Qısa Müddətdə Sizinlə Əlaqə Saxlayacayıq!',
+                                    'success'
+                                    )
+                            });
+                        </script>
+                        {% csrf_token %}
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Booking End -->
+{% endif %}
+
+
+<!-- Menu Start -->
+<div class="menu">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Menyumuz</p>
+            <h2>İndidən Nuş Olsun <i class="fa-solid fa-face-smile-tongue"></i> </h2>
+        </div>
+        <div class="menu-tab">
+            <ul class="nav nav-pills justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="pill" href="#burgers">Dönərlər</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#snacks">İçkilər</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="pill" href="#beverages">Setlər</a>
+                </li>
+            </ul>
+            <div class="tab-content">
+                <div id="burgers" class="container tab-pane active">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-12">
+
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/small-free.jpg' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>Kartof Free</span> <strong>1.90 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/large-free.jpg' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>Kartof Free (Böyük)</span> <strong>3.60 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/post-1.avif' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>Lavaş Dönər</span> <strong>2.50 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                    <p>Toyuq əti,Acı bibər,Pamidor,Xiyar,Soğan,Göyərti</p>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/saurma.jpg' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>Şaurma</span> <strong>3.50 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                    <p>Toyuq əti,Tutulmuş Xiyar,Acı bibər,Pamidor,Soğan</p>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/post-3.avif' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>Çörəkdə Dönər</span> <strong>2.50 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                    <p>Toyuq əti , Acı bibər , Pamidor , Xiyar , Soğan</p>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/mal-eti.jpg' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>Çörəkdə Dönər</span> <strong>3.00 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                    <p>Mal əti , Acı bibər , Pamidor , Xiyar , Soğan</p>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/tombik.jpg' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>Tombik Dönər</span> <strong>4.00 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                    <p>Mal əti,Kahı,Pamidor,Kartof free,Tutulmuş xiyar,Soğan</p>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/porsion.webp' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>Porsion Dönər</span> <strong>5.20 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                    <p>Mal əti , Kahı , Pamidor , Kartof free , Xiyar , Qatıq</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 d-none d-lg-block">
+                            <img style="width: 250px;" src="{% static 'img/jsjs-1.jpg' %}" alt="Image">
+                        </div>
+                    </div>
+                </div>
+                <div id="snacks" class="container tab-pane fade">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-12">
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/su.jpg' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>Su</span> <strong>0.50 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/ayran-1.jpg' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>Ayran</span> <strong>0.70 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/ayran-2.jpg' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>Ayran (Böyük)</span> <strong>1.00 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/Cappy.jpg' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>Cappy</span> <strong>1.20 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/cola-1.webp' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>Coca-Cola</span> <strong>1.50 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/cola-2.jpg' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>Coca-Cola (Böyük)</span> <strong>1.80 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/fanta-1.jpg' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>Fanta</span> <strong>1.50 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/fanta-2.webp' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>Fanta (Böyük)</span> <strong>1.80 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/sprite.jpeg' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>Sprite</span> <strong>1.50 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/sprite-2.jpg' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>Sprite (Böyük)</span> <strong>1.80 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/pepsi-small.webp' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>Pepsi</span> <strong>1.50 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/pepsi.png' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>Pepsi (Böyük)</span> <strong>1.80 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 d-none d-lg-block">
+                            <img  style="width: 300px;" src="{% static 'img/drinks.jpeg' %}" alt="Image">
+                        </div>
+                    </div>
+                </div>
+                <div id="beverages" class="container tab-pane fade">
+                    <div class="row">
+                        <div class="col-lg-7 col-md-12">
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/menu-set-2.jpg' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>4 Dönər + 1 Dönər</span> <strong>9.00 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/menu-set.jpg' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>2 Dönər + 2 Qab Aş + Salat</span> <strong>12.00 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/menu-set-1.jpg' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>3 Tombik Dönər + 3 Lavaşda Dönər </span> <strong>15.00 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/free-set.jpg' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>2 Dönər + 2 Pepsi + 2 Kartof Free</span> <strong>10.00 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                </div>
+                            </div>
+                            <div class="menu-item">
+                                <div class="menu-img">
+                                    <img src="{% static 'img/salat-set.jpg' %}" alt="Image">
+                                </div>
+                                <div class="menu-text">
+                                    <h3><span>1 Dönər + 1 Ayran + Paytaxt Salatı</span> <strong>10.00 <i class="fa-solid fa-manat-sign"></i></strong></h3>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-5 d-none d-lg-block">
+                            <img src="{% static 'img/set.jpg' %}" alt="Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Menu End -->
+
+{% endblock section %}
+        
+        
+        
+
+        

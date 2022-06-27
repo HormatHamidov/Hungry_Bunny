@@ -1,0 +1,361 @@
+{% extends 'base.html' %}
+{% load static %}
+
+        
+{% block section %}
+   <!-- Page Header Start -->
+   <div class="page-header">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2>Yorumlarınız</h2>
+                <a class="btn custom-btn" href="/articles/addarticle">Səndə FİKRİNİ Bölüş</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Header End -->
+
+
+<!-- Single Post Start-->
+<div class="single">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="single-content">  
+
+                    {% if articles %}
+
+                    <h2 style="text-align: center; margin:20px;"> Müştərilərimizin Rəyləri  </h2>
+                    
+                            {% for article in articles %}                   
+
+                            <div style="border-radius:20px;" class="single-bio">
+                                <div class="single-bio-text">
+                                    <h3><a href="#">{{article.author}} <span style="color: #719a0a;"> deyib ki :</span></a></h3> <hr>
+                                    <h4><a style="color: black;">{{article.title}}</a></h4>
+                                    <p>
+                                        <span style="color:black; font-size:large; "></span> {{article.content}}
+                                    </p>
+                                    <br>
+
+                                    <form action="{% url 'article:like-post' %}" method="POST" class="ui form">
+                                        {% csrf_token %}
+                                        <input type="hidden" name="post_id" value="{{ article.id }}">
+                                        
+                                        {% if user not in article.liked.all %}
+                                            <button class="ui btn btn-primary" type="submit"><i class="fa-solid fa-thumbs-up"></i></button>
+                                        {% else %}
+                                            <button class="ui btn btn-danger" type="submit"><i class="fa-solid fa-thumbs-down"></i></button>
+                                        {% endif %}
+                                        <strong> Bəyənilər : {{article.liked.all.count}}</strong>
+                                    </form>
+                                    <br>  
+
+                                      <span>{{article.created_date}}</span>
+                                </div>
+                            </div>
+                            {% endfor %}
+                    
+                        </tbody>
+                    </table>
+                    
+                    {% else %}
+                    
+                    <div style="text-align: center; margin:20px" class="alert alert-danger">
+                        Yorumunuz Mövcud Deyil...
+                    
+                    </div>
+                    
+                    {% endif %}
+
+                </div>
+                <div class="single-tags">
+                    <a href="">Sağlam Qidalanmaq</a>
+                    <a href="">Məhsullar</a>
+                    <a href="">Keyfiyyət</a>
+                    <a href="">Xidmət</a>
+                    <a href="">Yaşam Tərzi</a>
+                    <a href="">Məkanlar</a>
+                </div>
+
+                <div class="single-related">
+                    <h2>Əlaqədar Postlar</h2>
+                    <div class="owl-carousel related-slider">
+                        <div class="post-item">
+                            <div class="post-img">
+                                <img src="{% static 'img/post-1.avif' %}" />
+                            </div>
+                            <div class="post-text">
+                                <a href="">Çox Dadlı və Keyfiyyətlidir</a>
+                                <div class="post-meta">
+                                    <p><a href="">flora_huseynova </a> Tərəfindən</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-item">
+                            <div class="post-img">
+                                <img src="{% static 'img/post-2.avif' %}" />
+                            </div>
+                            <div class="post-text">
+                                <a href="">Çox Bəyəndim</a>
+                                <div class="post-meta">
+                                    <p><a href="">murad </a> Tərəfindən</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-item">
+                            <div class="post-img">
+                                <img src="{% static 'img/post-3.avif' %}" />
+                            </div>
+                            <div class="post-text">
+                                <a href="">Qiymətlər əlverişlidir , çox bəyəndim</a>
+                                <div class="post-meta">
+                                    <p><a href="">nezrin19 </a> Tərəfindən</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="post-item">
+                            <div class="post-img">
+                                <img src="{% static 'img/post-4.avif' %}" />
+                            </div>
+                            <div class="post-text">
+                                <a href="">Xidmət çox gözəldir</a>
+                                <div class="post-meta">
+                                    <p><a href="">azim </a> Tərəfindən</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <div class="sidebar-widget">
+                        <div class="search-widget">
+                            <form>
+                                {% csrf_token %}
+                                <input name="keyword" maxlength="64" class="form-control" type="text" placeholder="Axtar">
+                                <button type="submit" class="btn"><i class="fa fa-search"></i></button>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <div class="image-widget">
+                            <a href="#"><img src="{% static 'img/jsjs.jpg' %}" alt="Image"></a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <div class="tab-post">
+                            <ul class="nav nav-pills nav-justified">
+                                <li class="nav-item">
+                                    <a class="nav-link active" data-toggle="pill" href="#featured">Yayınlananlar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="pill" href="#popular">Məhsurlar</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" data-toggle="pill" href="#latest">Sonuncular</a>
+                                </li>
+                            </ul>
+
+                            <div class="tab-content">
+                                <div id="featured" class="container tab-pane active">
+                                    <div class="post-item">
+                                        <div class="post-img">
+                                            <img src="{% static 'img/post-2.avif' %}" />
+                                        </div>
+                                        <div class="post-text">
+                                            <a href="">Çox Bəyəndim</a>
+                                            <div class="post-meta">
+                                                <p><a href="">murad </a> Tərəfindən</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post-item">
+                                        <div class="post-img">
+                                            <img src="{% static 'img/post-1.avif' %}" />
+                                        </div>
+                                        <div class="post-text">
+                                            <a href="">Çox Dadlı və Keyfiyyətlidir</a>
+                                            <div class="post-meta">
+                                                <p><a href="">flora_huseynova </a> Tərəfindən</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post-item">
+                                        <div class="post-img">
+                                            <img src="{% static 'img/post-4.avif' %}" />
+                                        </div>
+                                        <div class="post-text">
+                                            <a href="">Xidmət çox gözəldir</a>
+                                            <div class="post-meta">
+                                                <p><a href="">azim </a> Tərəfindən</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post-item">
+                                        <div class="post-img">
+                                            <img src="{% static 'img/post-3.avif' %}" />
+                                        </div>
+                                        <div class="post-text">
+                                            <a href="">Qiymərlər əlverişlidir , çox bəyəndim</a>
+                                            <div class="post-meta">
+                                                <p><a href="">nezrin19 </a> Tərəfindən</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="popular" class="container tab-pane fade">
+                                    <div class="post-item">
+                                        <div class="post-img">
+                                            <img src="{% static 'img/post-1.avif' %}" />
+                                        </div>
+                                        <div class="post-text">
+                                            <a href="">Çox Dadlı və Keyfiyyətlidir</a>
+                                            <div class="post-meta">
+                                                <p><a href="">flora_huseynova </a> Tərəfindən</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post-item">
+                                        <div class="post-img">
+                                            <img src="{% static 'img/post-3.avif' %}" />
+                                        </div>
+                                        <div class="post-text">
+                                            <a href="">Qiymərlər əlverişlidir , çox bəyəndim</a>
+                                            <div class="post-meta">
+                                                <p><a href="">nezrin19 </a> Tərəfindən</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post-item">
+                                        <div class="post-img">
+                                            <img src="{% static 'img/post-4.avif' %}" />
+                                        </div>
+                                        <div class="post-text">
+                                            <a href="">Xidmət çox gözəldir</a>
+                                            <div class="post-meta">
+                                                <p><a href="">azim </a> Tərəfindən</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="latest" class="container tab-pane fade">
+                                    <div class="post-item">
+                                        <div class="post-img">
+                                            <img src="{% static 'img/post-3.avif' %}" />
+                                        </div>
+                                        <div class="post-text">
+                                            <a href="">Qiymərlər əlverişlidir , çox bəyəndim</a>
+                                            <div class="post-meta">
+                                                <p><a href="">nezrin19 </a> Tərəfindən</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post-item">
+                                        <div class="post-img">
+                                            <img src="{% static 'img/post-1.avif' %}" />
+                                        </div>
+                                        <div class="post-text">
+                                            <a href="">Çox Dadlı və Keyfiyyətlidir</a>
+                                            <div class="post-meta">
+                                                <p><a href="">flora_huseynova </a> Tərəfindən</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post-item">
+                                        <div class="post-img">
+                                            <img src="{% static 'img/post-4.avif' %}" />
+                                        </div>
+                                        <div class="post-text">
+                                            <a href="">Xidmət çox gözəldir</a>
+                                            <div class="post-meta">
+                                                <p><a href="">azim </a> Tərəfindən</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post-item">
+                                        <div class="post-img">
+                                            <img src="{% static 'img/feature-3.jpg' %}" />
+                                        </div>
+                                        <div class="post-text">
+                                            <a href="">Çox Əla</a>
+                                            <div class="post-meta">
+                                                <p><a href="">tamerlan </a> Tərəfindən</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="post-item">
+                                        <div class="post-img">
+                                            <img src="{% static 'img/doner.jpg' %}" />
+                                        </div>
+                                        <div class="post-text">
+                                            <a href="">Yemekler çox lezetdir</a>
+                                            <div class="post-meta">
+                                                <p><a href="">vahide </a> Tərəfindən</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <div class="image-widget">
+                            <a href="#"><img src="{% static 'img/blog-3.avif' %}" alt="Image"></a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h2 class="widget-title">Kateqoriyalar</h2>
+                        <div class="category-widget">
+                            <ul>
+                                <li><a href="">Sağlam Qidalanmaq</a></li>
+                                <li><a href="">Məhsullar</a></li>
+                                <li><a href="">Keyfiyyət</a></li>
+                                <li><a href="">Xidmət</a></li>
+                                <li><a href="">Yaşam Tərzi</a></li>
+                                <li><a href="">Məkanlar</a></li>                                                                                                                                  
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <div class="image-widget">
+                            <a href="#"><img src="{% static 'img/blog-4.avif' %}" alt="Image"></a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h2 class="widget-title">Bizim Taglar</h2>
+                        <div class="tag-widget">
+                            <a href="">#ajdaha</a>
+                            <a href="">#dönərustası</a>
+                            <a href="">#ajdahakimi</a>
+                            <a href="">#keyfiyyət</a>
+                            <a href="">#ucuzqiymetler</a>
+                            <a href="">#seviyye</a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h2 class="widget-title">Qısa Mesajımız</h2>
+                        <div class="text-widget">
+                            <p>
+                                Sizə xidmət etmək bizə çox böyük sevinc və qurur verir.Daim xidmətinizdə durmağa hazırıq.Sizin xoş yorumlarınız və  bizi bəyənməyiniz , seçməyiniz bizi dahada həvəsləndirir.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Single Post End-->   
+
+{% endblock section %}   

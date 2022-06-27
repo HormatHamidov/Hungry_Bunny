@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block section %}
+
+   <!-- Page Header Start -->
+   <div class="page-header mb-0">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h2><i class="fa-solid fa-user"></i></h2>
+                <h2>Şəxsi Kabinet</h2>
+                <h3 style="color: white;">Xoş Gəldin <span style="color: #719a0a;"> {{request.user.username}} </span></h3>
+            </div>
+            
+        </div>
+    </div>
+   </div>
+<!-- Page Header End -->
+
+ <div class="single">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="single-content">  
+                    <div style="text-align: center;">
+                        <a style="margin: 10px;" class="btn custom-btn" href="/articles/addarticle"> Rəy Bildir</a>
+                        <hr>
+                    </div>
+                    
+                    {% if articles %}
+                    
+                    <h2 style="text-align: center; margin:20px;"> Rəylərin </h2>
+                    
+                            {% for article in articles %}
+                    
+                            <div style="margin: 30px; border-radius:20px;" class="single-bio">
+                                <div style="border:1px solid rgb(219, 214, 214); border-radius:10px; padding:20px; width:600px;" class="single-bio-text">
+                                    <h4 style="color: black;">{{article.title}}</h4>
+                                    <p>
+                                        {{article.content}}
+                                    </p>
+                                    <br>
+                                    <a style="margin-right: 10px; width:60px;" href="/articles/update/{{article.id}}" class="btn btn-primary" ><i class="fa-solid fa-gear"></i></a>
+                                    <a style="width: 50px;" href="/articles/delete/{{article.id}}" class="btn btn-danger" ><i class="fa-solid fa-trash"></i></a>
+                                    <div>
+                                        <br>
+                                        <span>{{article.created_date}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                    
+                            {% endfor %}
+                    
+                    {% else %}
+                    
+                    <div style="text-align:center;  margin:20px;" class="alert alert-danger">
+                        Hələki Yorumunuz Yoxdur ...
+                    
+                    </div>
+                    
+                    {% endif %}
+                    
+
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="sidebar">
+                    <div class="sidebar-widget">
+                    <div class="sidebar-widget">
+                        <div class="image-widget">
+                            <a href="#"><img src="{% static 'img/hunbun.jpg' %}" alt="Image"></a>
+                        </div>
+                    </div>
+
+                    <div class="sidebar-widget">
+                        <h2 class="widget-title">Bizi Seçdiyiniz Üçün Minnətdarıq</h2>
+                        <div class="text-widget">
+                            <p>
+                                Sizə xidmət etmək bizə çox böyük sevinc və qurur verir.Daim xidmətinizdə durmağa hazırıq.Sizin xoş yorumlarınız və  bizi bəyənməyiniz , seçməyiniz bizi dahada həvəsləndirir.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div> 
+ </div>
+  
+{% endblock section %}
